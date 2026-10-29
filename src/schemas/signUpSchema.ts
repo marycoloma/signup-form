@@ -12,3 +12,8 @@ export const signUpSchema = z
   .object({
     firstName: nameField("First name"),
     lastName: nameField("Last name"),
+    email: z
+      .string()
+      .trim()
+      .min(1, "Email is required.")
+      .email("Please enter a valid email address."),
