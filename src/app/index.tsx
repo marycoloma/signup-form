@@ -1,4 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Control } from "react-hook-form";
+import { StyleSheet, Text, TextInputProps, View } from "react-native";
+import { SignUpFormData } from "../schemas/signUpSchema";
+
+type FormFieldProps = {
+  control: Control<SignUpFormData>;
+  name: keyof SignUpFormData;
+  label: string;
+  error?: string;
+} & Omit<TextInputProps, "value" | "onChangeText" | "onBlur">;
 
 export default function Index() {
   return (
