@@ -141,7 +141,7 @@ export default function SignUpScreen() {
             styles.button,
             pressed && styles.buttonPressed,
           ]}
-          onPress={handleSubmit(onSubmit)}
+          onPress={() => handleSubmit(onSubmit)()}
           disabled={isSubmitting}
           accessibilityRole="button"
         >
