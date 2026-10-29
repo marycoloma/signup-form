@@ -3,12 +3,12 @@ import { z } from "zod";
 const nameField = (label: string) =>
   z
     .string()
-    .trim()
+    .trim() // as instructed
     .min(1, `${label} is required.`)
     .min(2, `${label} must be at least 2 characters.`)
     .max(30, `${label} must be 30 characters or fewer.`);
 
-export const signUpSchema = z
+export const signupSchema = z
   .object({
     firstName: nameField("First name"),
     lastName: nameField("Last name"),
@@ -25,5 +25,7 @@ export const signUpSchema = z
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match.",
-    path: ["confirmPassword"],
+    path: ["confirmPassword"], // show the error
   });
+
+export type SignupValues = z.infer<typeof signupSchema>;
