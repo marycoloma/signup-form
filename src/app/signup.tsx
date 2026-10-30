@@ -57,6 +57,8 @@ export default function SignUpScreen() {
     formState: { errors, isSubmitting },
   } = useForm<SignupValues>({
     resolver: zodResolver(signupSchema),
+    mode: "onSubmit", // errors first appear when Sign Up is pressed
+    reValidateMode: "onChange", // after that, each error clears as soon as it's fixed
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -98,6 +100,7 @@ export default function SignUpScreen() {
           error={errors.firstName?.message}
           placeholder="Alex"
           autoCapitalize="words"
+          autoComplete="given-name"
         />
         <FormField
           control={control}
@@ -106,6 +109,7 @@ export default function SignUpScreen() {
           error={errors.lastName?.message}
           placeholder="Smith"
           autoCapitalize="words"
+          autoComplete="family-name"
         />
         <FormField
           control={control}
@@ -116,6 +120,7 @@ export default function SignUpScreen() {
           keyboardType="email-address"
           autoCapitalize="none"
           autoCorrect={false}
+          autoComplete="email"
         />
         <FormField
           control={control}
@@ -125,6 +130,7 @@ export default function SignUpScreen() {
           placeholder="At least 8 characters"
           secureTextEntry
           autoCapitalize="none"
+          autoComplete="new-password"
         />
         <FormField
           control={control}
@@ -134,6 +140,7 @@ export default function SignUpScreen() {
           placeholder="Re-enter your password"
           secureTextEntry
           autoCapitalize="none"
+          autoComplete="new-password"
         />
 
         <Pressable
