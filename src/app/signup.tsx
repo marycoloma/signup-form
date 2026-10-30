@@ -104,7 +104,7 @@ export default function SignUpScreen() {
               name="firstName"
               label="First name"
               error={errors.firstName?.message}
-              placeholder="Alex"
+              placeholder="Mary"
               autoCapitalize="words"
               autoComplete="given-name"
             />
@@ -113,7 +113,7 @@ export default function SignUpScreen() {
               name="lastName"
               label="Last name"
               error={errors.lastName?.message}
-              placeholder="Smith"
+              placeholder="Coloma"
               autoCapitalize="words"
               autoComplete="family-name"
             />
@@ -122,7 +122,7 @@ export default function SignUpScreen() {
               name="email"
               label="Email"
               error={errors.email?.message}
-              placeholder="alex@example.com"
+              placeholder="mary@example.com"
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
